@@ -1,0 +1,14 @@
+D:\WebProjects\FITNESSUNIVERSE2017\FitVerse\FitVerse.Model\bin\Debug\FitVerse.Model.dll
+D:\WebProjects\FITNESSUNIVERSE2017\FitVerse\FitVerse.Model\bin\Debug\FitVerse.Model.pdb
+D:\WebProjects\FITNESSUNIVERSE2017\FitVerse\FitVerse.Model\obj\Debug\FitVerse.Model.csprojResolveAssemblyReference.cache
+D:\WebProjects\FITNESSUNIVERSE2017\FitVerse\FitVerse.Model\obj\Debug\FitVerse.Model.dll
+D:\WebProjects\FITNESSUNIVERSE2017\FitVerse\FitVerse.Model\obj\Debug\FitVerse.Model.pdb
+D:\WebProjects\FITNESSUNIVERSE2017\FitVerse\FitVerse.Model\bin\Debug\FitVerse.Model.dll.config
+D:\WebProjects\FITNESSUNIVERSE2017\FitVerse\FitVerse.Model\bin\Debug\EntityFramework.dll
+D:\WebProjects\FITNESSUNIVERSE2017\FitVerse\FitVerse.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\WebProjects\FITNESSUNIVERSE2017\FitVerse\FitVerse.Model\bin\Debug\EntityFramework.xml
+D:\WebProjects\FITNESSUNIVERSE2017\FitVerse\FitVerse.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\WebProjects\FITNESSUNIVERSE2017\FitVerse\FitVerse.Model\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\WebProjects\FITNESSUNIVERSE2017\FitVerse\FitVerse.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\WebProjects\FITNESSUNIVERSE2017\FitVerse\FitVerse.Model\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\WebProjects\FITNESSUNIVERSE2017\FitVerse\FitVerse.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml

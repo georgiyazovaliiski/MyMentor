@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9156C1CC-46F7-4477-AB5F-A7048F81F6E6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FitVerse.Model</RootNamespace>
+    <AssemblyName>FitVerse.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\BMRCalculator.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Challenge.cs" />
+    <Compile Include="Models\ChallengePicker.cs" />
+    <Compile Include="Models\Component.cs" />
+    <Compile Include="Models\ComponentDTO.cs" />
+    <Compile Include="Models\ComponentType.cs" />
+    <Compile Include="Models\Day.cs" />
+    <Compile Include="Models\DayAndComponents.cs" />
+    <Compile Include="Models\Eating.cs" />
+    <Compile Include="Models\EatingComponent.cs" />
+    <Compile Include="Models\EatingComponentDTO.cs" />
+    <Compile Include="Models\EduTime.cs" />
+    <Compile Include="Models\EnglishToBGParser.cs" />
+    <Compile Include="Models\Exercise.cs" />
+    <Compile Include="Models\ExerciseDTO.cs" />
+    <Compile Include="Models\ExerciseInWorkout.cs" />
+    <Compile Include="Models\ExerciseInWorkoutDTO.cs" />
+    <Compile Include="Models\FitnessTime.cs" />
+    <Compile Include="Models\FreeTime.cs" />
+    <Compile Include="Models\FreeTimeType.cs" />
+    <Compile Include="Models\Gadget.cs" />
+    <Compile Include="Models\Meal.cs" />
+    <Compile Include="Models\NewsDTO.cs" />
+    <Compile Include="Models\News.cs" />
+    <Compile Include="Models\Priorities.cs" />
+    <Compile Include="Models\PrioritiesDTO.cs" />
+    <Compile Include="Models\Programs.cs" />
+    <Compile Include="Models\Questionaire.cs" />
+    <Compile Include="Models\Stats.cs" />
+    <Compile Include="Models\StatsDTO.cs" />
+    <Compile Include="Models\StatusLevel.cs" />
+    <Compile Include="Models\StudyHour.cs" />
+    <Compile Include="Models\Subject.cs" />
+    <Compile Include="Models\ThingToEat.cs" />
+    <Compile Include="Models\ThingToEatDTO.cs" />
+    <Compile Include="Models\UserDetailsDTO.cs" />
+    <Compile Include="Models\UserFitnessGoals.cs" />
+    <Compile Include="Models\UserFitnessGoalsDTO.cs" />
+    <Compile Include="Models\Week.cs" />
+    <Compile Include="Models\WeekAndDays.cs" />
+    <Compile Include="Models\Workout.cs" />
+    <Compile Include="Models\WorkoutDTO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

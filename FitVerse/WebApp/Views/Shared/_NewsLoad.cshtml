@@ -1,0 +1,75 @@
+﻿@model List<FitVerse.Model.NewsDTO>
+@if (Model != null)
+{
+    <div class="row">
+        <div class="col-12">
+            <!-- Section Heading Area -->
+            <div class="section-heading text-center">
+                <h2>Новини</h2>
+                <div class="line-shape"></div><br />
+                <h3>Спорт</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+
+        <!-- Single Special Area -->
+        <div class="col-12 col-md-4">
+            <div class="single-special text-center wow fadeInUp" data-wow-delay="0.2s">
+                <div class="single-icon">
+                    <a href="@item.HrefAttribute" target="_blank" onclick="addNewsRead('@item.HrefAttribute.ToString()')"><img src="@item.PictureAttribute.ToString()" class="ti-mobile" aria-hidden="true"/></a>
+                </div>
+                <h4 onclick="addNewsRead('@item.HrefAttribute.ToString()')">@item.Header</h4>
+                <p>@item.ShortDescription</p>
+            </div>
+        </div>
+        }
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-12">
+            <!-- Section Heading Area -->
+            <div class="section-heading text-center">
+                <h2>Защо MyMentor е специален?</h2>
+                <div class="line-shape"></div>
+            </div>
+        </div>
+    </div>
+
+        <div class="row">
+            <!-- Single Special Area -->
+            <div class="col-12 col-md-4">
+                <div class="single-special text-center wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="single-icon">
+                        <i class="ti-mobile" aria-hidden="true"></i>
+                    </div>
+                    <h4>Лесен за използване</h4>
+
+                </div>
+            </div>
+            <!-- Single Special Area -->
+            <div class="col-12 col-md-4">
+                <div class="single-special text-center wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="single-icon">
+                        <i class="ti-ruler-pencil" aria-hidden="true"></i>
+                    </div>
+                    <h4>Уникален дизайн</h4>
+
+                </div>
+            </div>
+            <!-- Single Special Area -->
+            <div class="col-12 col-md-4">
+                <div class="single-special text-center wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="single-icon">
+                        <i class="ti-settings" aria-hidden="true"></i>
+                    </div>
+                    <h4>Развива всички вас</h4>
+                </div>
+            </div>
+        </div>
+}
+<script src="~/Scripts/newsControl.js"></script>

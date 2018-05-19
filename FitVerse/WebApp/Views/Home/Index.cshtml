@@ -1,0 +1,343 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@using FitVerse.Data.Infrastructure.IdentityExtensions
+<!-- Preloader Start 
+<div id="preloader">
+    <div class="MyMentor-load"></div>
+</div>-->
+
+<!-- ***** Header Area Start ***** -->
+<header class="header_area animated">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <!-- Menu Area Start -->
+            <div class="col-12 col-lg-10">
+                <div class="menu_area">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="">M.M.</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ca-navbar" aria-controls="ca-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Menu Area -->
+                        <div class="collapse navbar-collapse" id="ca-navbar">
+                            <ul class="navbar-nav ml-auto" id="nav">
+                                <li class="nav-item active"><a class="nav-link" href="#home">Начало</a></li>
+                                @if (!User.Identity.IsAuthenticated)
+                                {
+                                    <li class="nav-item"><a class="nav-link" href="#about">За нас</a></li>
+                                }
+                                else
+                                {
+                                    <li class="nav-item"><a class="nav-link" href="#about">Новинки</a></li>
+                                }
+                                <!--<li class="nav-item"><a class="nav-link" href="#features">Характеристики</a></li>-->
+                                <!--<li class="nav-item"><a class="nav-link" href="#screenshot">Screenshot</a></li>-->
+                                <!--<li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>-->
+                                <!--<li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>-->
+                                @if (!User.Identity.IsAuthenticated)
+                                {
+                                    <li class="nav-item"><a class="nav-link" href="#team">Нашият екип</a></li>
+                                }
+                                else
+                                {
+                                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Index","Manage")">Профил</a></li>
+                                }
+                                <!--<li class="nav-item"><a class="nav-link" href="#contact">Контакти</a></li>-->
+                            </ul>
+                            <div class="sing-up-button d-lg-none">
+                                @if (!User.Identity.IsAuthenticated)
+                                {
+                                    <a href="@Url.Action("Login", "Account")">Влез!</a>
+                                }
+                                else
+                                {
+                                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { role = "form", id = "logoffform" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                    }<a href="#" onclick="document.getElementById('logoffform').submit()">Излез!</a>
+                                }
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- Signup btn -->
+            <div class="col-12 col-lg-2">
+                <div class="sing-up-button d-none d-lg-block">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <a href="@Url.Action("Login", "Account")">Влез!</a>
+                    }
+                    else
+                    {
+                        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                        }<a href="#" onclick="document.getElementById('logoffform').submit()">Излез!</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->
+<!-- ***** Wellcome Area Start ***** -->
+
+<section class="wellcome_area clearfix" id="home">
+    <div class="container h-100">
+    <div class="row h-100 align-items-center" id="questionaire">
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <div class="col-12 col-md">
+                <div class="wellcome-heading">
+                    <h2>MyMentor</h2>
+                    <h3>M</h3>
+                    <p>Всичко, Което Ви Трябва. Развийте Себе Си Сега</p>
+                </div>
+                <div class="get-start-area">
+                    <!-- Form Start -->
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Get, new { @class = "form-inline", role = "form" }))
+                    {
+                        <input type="email" name="Email" class="form-control email" placeholder="E-mail" autocomplete="off">
+                        <input type="submit" class="submit" value="Започни сега">
+                    }
+                    <!-- Form End -->
+                </div>
+            </div>
+        }
+        else if (User.Identity.IsAuthenticated)
+        {
+            <div class="col-md-3 scheduleheader animated fadeInDown">
+                <div class="wellcome-heading">
+                    <h3 style="line-height:170px">Your Mentor</h3>
+                </div>
+                <div class="gradiented" id="weekPicker">
+                    <h2 class=""><i class="fa fa-table"></i> Твоят график</h2>
+                    <ul>
+                        <li class="selectDay left">Понеделник</li>
+                        <li class="selectDay left">Вторник</li>
+                        <li class="selectDay left">Сряда</li>
+                        <li class="selectDay left">Четвъртък</li>
+                        <li class="selectDay left">Петък</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="HelloAndCompo" class="col-md-6 scheduleheader text-center animated flipInY">
+                <div>
+                <h2>Здравей, <span class="diarytext"><b>@User.Identity.Name.Split('@').ToArray()[0].ToString()</b></span></h2>
+                @Html.Action("CheckIfTestDone","Home")
+                </div>
+                <br />
+                <br />
+                <div class="row" id="ComponentDetails">
+                    <div class="col-md" id="ComponentName">
+                        
+                    </div>
+                    <div class="col-md" id="ComponentDuration">
+
+                    </div>
+                    <div class="col-md-12" id="ComponentDescription">
+                        
+                    </div>
+                    <br /><br /><br />
+                    <div class="col-md-12" id="ComponentCompleteButton">
+                        
+                    </div>
+                </div>
+            </div>
+            <div id="daySchedule" class="col-md-3 scheduleheader animated fadeInDown">
+                <div class="gradiented text-right">
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <h2><i class="fa fa-address-book"></i> Понеделник</h2>
+                </div>
+            </div>
+            
+        }
+        </div>
+    </div>
+    <!-- Welcome thumb -->
+    @if (!User.Identity.IsAuthenticated)
+    {
+    <div class="welcome-thumb wow fadeInDown" data-wow-delay="0.5s">
+        <img src="~/Content/img/bg-img/welcome-img.png" alt="">
+    </div>
+    }
+</section>
+<section class="special-area bg-white section_padding_100" id="about">
+    <div class="container">
+        @Html.Action("NewsLoad", "Home")
+    </div>
+    <!-- Special Description Area 
+    <div class="special_description_area mt-150">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="special_description_img">
+                        <img src="~/Content/img/bg-img/special.png" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-5 ml-xl-auto">
+                    <div class="special_description_content">
+                        <h2>Най-добрият График За Теб!</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                        <div class="app-download-area">
+                            <div class="app-download-btn wow fadeInUp" data-wow-delay="0.2s">
+                                <a href="#">
+                                    <i class="fa fa-android"></i>
+                                    <p class="mb-0"><span>available on</span> Google Store</p>
+                                </a>
+                            </div>
+                            <div class="app-download-btn wow fadeInDown" data-wow-delay="0.4s">
+                                <a href="#">
+                                    <i class="fa fa-apple"></i>
+                                    <p class="mb-0"><span>available on</span> Apple Store</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>-->
+<!-- ***** Special Area End ***** -->
+<!-- ***** Awesome Features Start ***** -->
+<!-- ***** Awesome Features End ***** -->
+<!-- ***** Video Area Start ***** --> <!--
+<div class="video-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                Video Area Start 
+                <div class="video-area" style="background-image: url(img/bg-img/video.jpg);">
+                    <div class="video-play-btn">
+                        <a href="https://www.youtube.com/watch?v=f5BBJ4ySgpo" class="video_btn"><i class="fa fa-play" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+<!-- ***** Video Area End ***** -->
+<!-- ***** Cool Facts Area Start ***** -->
+<!-- ***** Client Feedback Area End ***** -->
+<!-- ***** CTA Area Start ***** -->
+
+<section class="our-monthly-membership section_padding_50 clearfix">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="membership-description">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <h2>Обогати своята личност!</h2>
+                        <p>Намери перфектната за теб седмична програма — 100% удовлетворение гарантирано.</p>
+                    }
+                    else
+                    {
+                        <h2>Твоят профил!</h2>
+                        <p>Редактирай своите данни.</p>
+                    }
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="get-started-button wow bounceInDown" data-wow-delay="0.5s">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                         <a href="#">Започни сега</a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Index","Manage")">Към профила</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** CTA Area End ***** -->
+<!-- ***** Our Team Area Start ***** -->
+@if (!User.Identity.IsAuthenticated) { 
+<section class="our-Team-area bg-white section_padding_100_50 clearfix" id="team">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <!-- Heading Text  -->
+                <div class="section-heading">
+                    <h2>Нашият екип</h2>
+                    <div class="line-shape"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div style="margin:auto" class="col-12 col-md-6 col-lg-3">
+                <div class="single-team-member">
+                    <div class="member-image">
+                        <img src="~/Content/img/team-img/team-5.jpg" alt="">
+                        <div class="team-hover-effects">
+                            <div class="team-social-icon">
+                                <a href="https://www.facebook.com/georgi.yazovaliiski"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="https://www.instagram.com/yazovaliyski"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-text">
+                        <h4>Georgi Yazovaliyski</h4>
+                        <p>Founder, MFA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>}
+    <footer class="our-monthly-membership section_padding_100 clearfix">
+        <!-- footer logo -->
+        <div class="footer-text">
+            <h2>M.M.</h2>
+        </div>
+        <!-- social icon -->
+        <div class="footer-social-icon">
+            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="#"><i class="active fa fa-twitter" aria-hidden="true"></i></a>
+            <a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+        </div>
+        <div class="footer-menu">
+            <nav>
+                <ul>
+                    <li><a href="#">За нас</a></li>
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Контакти</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Foooter Text -->
+        <div class="copyright-text">
+            <!-- ***** Removing this text is now allowed! This template is licensed under CC BY 3.0 ***** --> 
+            <p>Copyright ©@DateTime.Now.Year M.M. Designed by <a href="https://MyMentor.com" target="_blank">MyMentor</a></p>
+        </div>
+    </footer>
+<!-- ***** Footer Area Start ***** -->
+<!-- Jquery-2.2.4 JS -->
+<script src="~/Scripts/jquery-2.2.4.min.js"></script>
+<!-- Popper js -->
+<script src="~/Scripts/popper.min.js"></script>
+<!-- Bootstrap-4 Beta JS -->
+<script src="~/Scripts/bootstrap.min.js"></script>
+<!-- All Plugins JS -->
+<script src="~/Scripts/plugins.js"></script>
+<!-- Slick Slider Js-->
+<script src="~/Scripts/slick.min.js"></script>
+<!-- Footer Reveal JS -->
+<script src="~/Scripts/footer-reveal.min.js"></script>
+<!-- Active JS -->
+<script src="~/Scripts/active.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
+<script src="~/Scripts/questionaire.js"></script>

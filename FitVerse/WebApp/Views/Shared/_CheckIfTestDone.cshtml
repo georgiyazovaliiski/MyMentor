@@ -1,0 +1,10 @@
+﻿@model bool
+@if (Model == false)
+{
+    <p style="color:white">Все още MyMentor не е изградил твоя график!</p>
+    <a href="#" id="start-questionaire" class="custombutton">Започни!</a>
+}
+else
+{
+    @Html.Action("GetDailyChallenges", "Home")
+}

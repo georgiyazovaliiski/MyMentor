@@ -1,0 +1,11 @@
+﻿@model WebApp.Models.RegisterViewModel
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control email", placeholder = "Email" }) <br />
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control email", placeholder = "Парола" })<br />
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control email", placeholder = "Потвърди Парола" })<br />
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control email", placeholder = "Име" })<br />
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control email", placeholder = "Фамилия" })<br />
+    <input type="submit" class="submit" style="border-top-right-radius:0" value="Регистрирай се">
+}

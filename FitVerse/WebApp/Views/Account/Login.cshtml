@@ -1,0 +1,37 @@
+﻿@model WebApp.Models.LoginViewModel
+@{
+    ViewBag.Title = "Влез";
+}
+<link rel="stylesheet" href="~/Content/demo.css">
+<link rel="stylesheet" href="~/Content/form-register.css">
+<div class="gradiented ">
+    <br />
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form-register", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-register-with-email">
+            <div class="form-white-background">
+                <div class="form-row">
+                    <label>
+                        <span>Email</span>
+                        @Html.TextBoxFor(m => m.Email, new { placeholder = "Email" })
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Парола</span>
+                        @Html.PasswordFor(m => m.Password, new { placeholder = "Парола" })
+                    </label>
+                </div>
+                <div class="form-row">
+                    <button type="submit">Влез</button>
+                </div>
+                <a href="@Url.Action("Register","Account")" class="form-log-in-with-existing">Регистрирай се&rarr;</a>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
