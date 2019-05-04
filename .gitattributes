@@ -1,2 +1,14 @@
 FitVerse/packages/* linguist-vendored=true
 FitVerse/node_modules/* linguist-vendored=true
+FitVerse/WebApp/Content/* linguist-vendored=true
+FitVerse/WebApp/obj/* linguist-vendored=true
+FitVerse/WebApp/bin/* linguist-vendored=true
+FitVerse/WebApp/obj/* linguist-vendored=true
+FitVerse/Service/obj/* linguist-vendored=true
+FitVerse/Service/bin/* linguist-vendored=true
+FitVerse/FitVerse.Model/bin/* linguist-vendored=true
+FitVerse/FitVerse.Model/obj/* linguist-vendored=true
+FitVerse/FitVerse.Data/bin/* linguist-vendored=true
+FitVerse/FitVerse.Data/obj/* linguist-vendored=true
+FitVerse/AgilityPack/bin/* linguist-vendored=true
+FitVerse/AgilityPack/obj/* linguist-vendored=true
